@@ -15,7 +15,7 @@ jobs:
       # - image: circleci/mysql:9.4
       - image: circleci/mongo:4-ram
 
-    working_directory: ~/api
+    working_directory: ~/repo
 
     steps:
       - checkout
