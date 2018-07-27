@@ -19,9 +19,7 @@ jobs:
 
     steps:
       - checkout
-
       - run: pecl install mongodb
-
+      - run: wget https://raw.githubusercontent.com/composer/getcomposer.org/fe44bd5b10b89fbe7e7fc70e99e5d1a344a683dd/web/installer -O - -q | php -- --quiet
       - run: cd api && composer install -n --prefer-dist
-        
       - run: ./bin/phpunit
