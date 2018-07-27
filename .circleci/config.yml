@@ -20,6 +20,8 @@ jobs:
     steps:
       - checkout
 
+      - run: pecl install mongodb
+
       - run: cd api && composer install -n --prefer-dist
         
       - run: ./bin/phpunit
