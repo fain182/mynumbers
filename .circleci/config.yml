@@ -21,7 +21,8 @@ jobs:
       - checkout
       - run: apt-get update
       - run: apt-get install -y --no-install-recommends git unzip wget && wget https://getcomposer.org/download/1.6.5/composer.phar
+      - run: chmod +x composer.phar && mv composer.phar /usr/local/bin/
       - run: apt-get install -y libzip-dev && pecl install zip && echo "extension=zip.so" >> /usr/local/etc/php/conf.d/zip.ini
       - run: pecl install mongodb && echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongo.ini
-      - run: cd api && php ../composer.phar install -n --prefer-dist
+      - run: cd api && composer install -n --prefer-dist
       - run: cd api && ./bin/phpunit
