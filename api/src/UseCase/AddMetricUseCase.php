@@ -3,9 +3,10 @@
 
 namespace App\UseCase;
 
-
+use App\Entity\InvalidEntityException;
 use App\Entity\Metric;
 use App\Repository\MetricRepository;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class AddMetricUseCase
 {
@@ -18,7 +19,11 @@ class AddMetricUseCase
 
     public function add($name, $url, $selector): Metric
     {
-        $metric = new Metric($name, $url, $selector);
+        try {
+            $metric = new Metric($name, $url, $selector);
+        } catch (InvalidEntityException $exception) {
+            throw new BadRequestHttpException($exception->getMessage());
+        }
         $this->metricRepository->add($metric);
         return $metric;
     }
