@@ -18,13 +18,13 @@ class MetricForm extends Component {
       this.nameInput.current.value,
       this.urlInput.current.value,
       this.selectorInput.current.value
-    ).then(result => {
-      if (result) {
+    )
+      .then(result => {
         this.setState({ message: "'" + result.name + "' has been added." });
-      } else {
-        this.setState({ message: "Internal error" });
-      }
-    });
+      })
+      .catch(error => {
+        this.setState({ message: error.message });
+      });
   }
 
   render() {
