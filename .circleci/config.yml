@@ -29,15 +29,11 @@ jobs:
       - run: cd api && composer install -n --prefer-dist
       - run: cd api && ./bin/phpunit
       # admin testing
-      - run:
-        name: Install nvm
-        command: |
-          set +e
-          touch $BASH_ENV  
-          curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-          echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
-          echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
-          echo 'nvm install' >> $BASH_ENV
+      - run: touch $BASH_ENV  
+      - run: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+      - run: echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
+      - run: echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+      - run: echo 'nvm install' >> $BASH_ENV
       - run: curl -o- -L https://yarnpkg.com/install.sh | bash && echo 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"' >> $BASH_ENV
       - run: php api/bin/console server:start
       - run: cd admin && ~/.yarn/bin/yarn install
