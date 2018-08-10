@@ -20,6 +20,7 @@ jobs:
     steps:
       - checkout
       - run: apt-get update
+      # api testing
       - run: apt-get install -y --no-install-recommends git unzip wget && wget https://getcomposer.org/download/1.6.5/composer.phar
       - run: chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
       - run: apt-get install -y libzip-dev && pecl install zip && docker-php-ext-enable zip
@@ -27,5 +28,8 @@ jobs:
       - run: docker-php-ext-install pcntl
       - run: cd api && composer install -n --prefer-dist
       - run: cd api && ./bin/phpunit
+      # admin testing
+      - run: apt-get install -y yarn
       - run: php api/bin/console server:start
+      - run: cd admin && yarn install
       - run: cd admin && yarn test
