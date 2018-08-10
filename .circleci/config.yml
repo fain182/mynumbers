@@ -30,7 +30,7 @@ jobs:
       - run: cd api && ./bin/phpunit
       # admin testing
       - run: apt-get install -y nodejs
-      - run: curl -o- -L https://yarnpkg.com/install.sh | bash && source ~/.bashrc
+      - run: curl -o- -L https://yarnpkg.com/install.sh | bash
       - run: php api/bin/console server:start
-      - run: cd admin && yarn install
-      - run: cd admin && yarn test
+      - run: cd admin && ~/.yarn/bin/yarn install
+      - run: cd admin && ~/.yarn/bin/yarn test
