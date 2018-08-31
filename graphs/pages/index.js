@@ -1,15 +1,26 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
 import fetch from "isomorphic-unfetch";
+import "semantic-ui-css/semantic.min.css";
+import { Modal, Header, Button, List, Icon } from "semantic-ui-react";
 
 const Index = props => (
   <Layout>
-    <h2>Homepage</h2>
-    <ul>
-      {props.metrics.map(metric => {
-        return <li key={metric.id}>{metric.name}</li>;
-      })}
-    </ul>
+    <h3 className="ui header">Homepage</h3>
+    <div className="ui inverted segment">
+      <div className="ui inverted relaxed divided list">
+        {props.metrics.map(metric => {
+          return (
+            <div className="item" key={metric.id}>
+              <div className="content">
+                <div className="header">{metric.name}</div>
+                from {metric.url}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   </Layout>
 );
 

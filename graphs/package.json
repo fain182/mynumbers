@@ -1,24 +1,20 @@
 {
   "name": "graphs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "next start"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "@zeit/next-css": "^0.2.0",
+    "file-loader": "^1.1.11",
     "isomorphic-unfetch": "^2.1.1",
     "next": "^6.1.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-typography": "^0.16.13",
-    "typography": "^0.16.17",
-    "typography-theme-alton": "^0.15.10"
+    "semantic-ui-css": "^2.3.3",
+    "semantic-ui-react": "^0.82.0",
+    "url-loader": "^1.0.1"
   }
 }

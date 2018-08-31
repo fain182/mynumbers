@@ -1,23 +1,29 @@
 import Link from "next/link";
-import Typography from "typography";
-import theme from "typography-theme-alton";
 import Head from "next/head";
-import { TypographyStyle, GoogleFont } from "react-typography";
-
-const typography = new Typography(theme);
 
 const Layout = props => (
-  <div style={{ width: "800px", margin: "0 auto" }}>
-    <Head>
-      <title>Track any number</title>
-      <TypographyStyle typography={typography} />
-      <GoogleFont typography={typography} />
-    </Head>
-    <div>
-      <Link href="/">
-        <h1>Track any number on the web</h1>
-      </Link>
-      <div>{props.children}</div>
+  <div>
+    <div className="ui inverted vertical masthead center aligned segment">
+      <Head>
+        <title>Track any number</title>
+      </Head>
+      <div className="ui text container">
+        <Link href="/">
+          <h1 className="ui inverted header">Track any number in the web</h1>
+        </Link>
+        <Link href="/">
+          <div className="ui huge primary button">
+            Create a graph <i className="right arrow icon" />
+          </div>
+        </Link>
+      </div>
+    </div>
+    <div className="ui vertical stripe segment">
+      <div className="ui middle aligned stackable grid container">
+        <div className="row">
+          <div className="eight wide column">{props.children}</div>
+        </div>
+      </div>
     </div>
   </div>
 );
