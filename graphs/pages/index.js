@@ -7,7 +7,7 @@ const Index = props => (
     <h2>Homepage</h2>
     <ul>
       {props.metrics.map(metric => {
-        return <li>{metric.name}</li>;
+        return <li key={metric.id}>{metric.name}</li>;
       })}
     </ul>
   </Layout>
