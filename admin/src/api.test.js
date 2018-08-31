@@ -9,5 +9,5 @@ test("creates a metric", () => {
   };
   return expect(
     createMetricAPI("pippo", "http://www.google.it", "#my_id")
-  ).resolves.toEqual(expected);
+  ).resolves.toMatchObject(expected);
 });

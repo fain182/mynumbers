@@ -47,6 +47,9 @@
     "nikic/php-parser": {
         "version": "v4.0.3"
     },
+    "paragonie/random_compat": {
+        "version": "v9.99.99"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -58,6 +61,9 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "ramsey/uuid": {
+        "version": "3.8.0"
     },
     "roave/security-advisories": {
         "version": "dev-master"
